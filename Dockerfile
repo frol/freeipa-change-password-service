@@ -5,5 +5,6 @@ RUN pip install -r /opt/requirements.txt
 
 COPY . /opt/
 WORKDIR /opt/
+USER nobody
 
-CMD FLASK_APP=freeipa_change_password_service.py flask run --host 0.0.0.0 --port 80
+CMD FLASK_APP=freeipa_change_password_service.py flask run --host 0.0.0.0 --port 5000

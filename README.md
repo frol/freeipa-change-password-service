@@ -9,7 +9,7 @@ Start Docker container
 ----------------------
 
 ```bash
-$ docker run --publish 8000:8000 frolvlad/freeipa-change-password-service
+$ docker run --publish 5000:5000 frolvlad/freeipa-change-password-service
 ```
 
 
