@@ -42,7 +42,7 @@ def hello_world():
 
         return (
             ('<div>%s</div>' % (error_message if error_message else 'Password is changed successfuly!')) +
-            '<a href="/">Back</a>'
+            '<a href="">Back</a>'
         )
 
     return (
