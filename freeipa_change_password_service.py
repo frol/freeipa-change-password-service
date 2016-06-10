@@ -1,10 +1,17 @@
+import os
+
 from flask import Flask, request
 from freeipa_api_client import IPAPassword
 import requests
 
+
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+
+FREEIPA_API_SERVER_URL = os.environ['FREEIPA_API_SERVER_URL']
+
+
+@app.route('%s/' % os.environ.get('FREEIPA_CHANGE_PASSWORD_URL_PREFIX'), methods=['GET', 'POST'])
 def hello_world():
     if request.method == 'POST':
         error_message = None
@@ -17,7 +24,7 @@ def hello_world():
         elif request.form.get('new_password1') != request.form.get('new_password2'):
             error_message = "Passwords don't match."
         else:
-            ipa_password_api = IPAPassword(requests, 'https://freeipa.sparky.salford-systems.com')
+            ipa_password_api = IPAPassword(requests, FREEIPA_API_SERVER_URL)
             password_change_status, password_change_response = ipa_password_api.changePassword(
                 request.form['username'],
                 request.form['current_password'],
