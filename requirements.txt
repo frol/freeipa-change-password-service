@@ -1,0 +1,2 @@
+Flask
+https://github.com/frol/freeipa_api_client/archive/master.zip
